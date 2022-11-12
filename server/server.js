@@ -1,9 +1,17 @@
 const express = require("express") // to setup a backend, 'express' needs to be imported
+
 const mongoose = require("mongoose");
 require("dotenv").config();
+
 const cors = require("cors");
+
+const routes = require("../routes/ToDoRoutes") // require router
+
 const app = express() // to create an app
 
+app.use(express.json())
+app.use(cors());
+app.use(routes);
 
 // connect to mongoose
 mongoose
