@@ -1,28 +1,33 @@
 // import React, { useEffect, useState} from 'react'
-import './App.css';
 import {useState, useEffect} from 'react';  // useState
+import axios from 'axios';
 
 import Item from './components/Item';
+import './App.css';
 
-import axios from 'axios';
 // import { deleteToDo, updateToDo } from '../../controllers/ToDoController';
 
-function App() {
+const PORT = process.env.PORT | 3000;
 
+
+
+function App() {
+/*
   // ************* Exercise of MERN Stack To Do App
   const [text, setText] = useState("");
   const [todo, setTodo] = useState([]);
   const [isUpdating, setUpdating] = useState("");
 
   useEffect(() => {
-    axios.get("http://localhost:5000/get-todo")
+    axios.get(`http://localhost:${PORT}/get-todo`)
     .then((res) => setTodo(res.data))
-    .catch((err) => console.log(err))
+    // .catch((err) => console.log(err))
+    .catch((err) => console.log('This is a error from App.js useEffect'))
   })
 
   const addUpdate = () => {
     if (isUpdating === ""){
-      axios.post("http://localhost:5000/save-todo", {text})
+      axios.post(`http://localhost:${PORT}/save-todo`, {text})
       .then((res) => {
         console.log(res.data)
         setText("");
@@ -32,13 +37,16 @@ function App() {
   }
 
   const deleteToDo = (_id) => {
-
+    axios.post(`http://localhost:${PORT}/delete-todo`, { _id })
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
   }
   
   const updateToDo = (_id, text) => {
-
+    setUpdating(_id);
+    setText(text);
   } 
-
+*/
   return (
     <div className="App">
       <div className="container">
@@ -94,4 +102,4 @@ function App() {
 }
 
 
-export default App
+export default App;

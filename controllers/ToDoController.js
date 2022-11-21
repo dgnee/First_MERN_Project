@@ -1,8 +1,8 @@
 const ToDoModel = require("../models/ToDoModel");
 
 module.exports.getToDo = async (req, res) => {
-    const ToDo = await ToDoModel.find();
-    res.send(ToDo);
+    const todo = await ToDoModel.find();
+    res.send(todo);
 }
 
 module.exports.saveToDo = async (req, res) => {
