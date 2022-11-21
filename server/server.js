@@ -5,12 +5,14 @@ require("dotenv").config();
 
 const cors = require("cors");
 
-const routes = require("../routes/ToDoRoutes") // require router
+const routes = require("../routes/ToDoRoutes"); // require router
 
-const app = express() // to create an app
+const app = express() // assign an express object into the 'app' variable
+
 
 app.use(express.json())
 app.use(cors());
+// app.use(cors({origin: "http://localhost:5000", credentials: true})); // added bc of an error
 app.use(routes);
 
 // connect to mongoose
@@ -35,4 +37,4 @@ app.listen(5000, () => {
     console.log("Server started on port 5000");
 });
 
-// start up the server 
+// start up the server
